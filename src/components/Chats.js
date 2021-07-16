@@ -79,7 +79,7 @@ export default function Chats() {
             div className = 'nav-bar' >
             <
             div className = 'logo-tab' >
-            Yatter <
+            Anish Yatter <
             /div>
 
 
@@ -90,8 +90,8 @@ export default function Chats() {
             div onClick = { handleLogout }
             className = 'logout-tab' >
             Sign out <
-            /div> <
-            /div>
+            /div> < /
+            div >
 
             <
             ChatEngine height = 'calc(100vh - 66px)'
@@ -99,8 +99,9 @@ export default function Chats() {
             userName = { user.email }
             userSecret = { user.uid }
             onNewMessage = {
-                () => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play() }
-            /> <
-            /div>
+                () => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()
+            }
+            /> < /
+            div >
         )
 }
