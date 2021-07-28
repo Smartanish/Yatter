@@ -34,7 +34,7 @@ export default function Chats() {
                 return
             }
 
-
+            // Get-or-Create should be in a Firebase Function
             axios.get(
                 'https://api.chatengine.io/users/me/', {
                     headers: {
@@ -59,7 +59,7 @@ export default function Chats() {
 
                         axios.post(
                                 'https://api.chatengine.io/users/',
-                                formdata, { headers: { "private-key": "c156b8d8-dc0a-4614-97e8-93d5aff143ab" } }
+                                formdata, { headers: { "private-key": process.env.REACT_APP_CHAT_ENGINE_KEY } }
                             )
                             .then(() => setLoading(false))
                             .catch(e => console.log('e', e.response))
@@ -79,19 +79,15 @@ export default function Chats() {
             div className = 'nav-bar' >
             <
             div className = 'logo-tab' >
-            Anish Yatter <
+            Yatter <
             /div>
-
-
-
-
 
             <
             div onClick = { handleLogout }
             className = 'logout-tab' >
-            Sign out <
-            /div> < /
-            div >
+            Signout <
+            /div> <
+            /div>
 
             <
             ChatEngine height = 'calc(100vh - 66px)'
@@ -100,8 +96,11 @@ export default function Chats() {
             userSecret = { user.uid }
             onNewMessage = {
                 () => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()
+
             }
-            /> < /
-            div >
+
+
+            /> <
+            /div>
         )
 }
